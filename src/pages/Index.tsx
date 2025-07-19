@@ -146,6 +146,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Лента последних выигрышей */}
+      <WinnersMarquee />
+
       {/* Sticky Header */}
       {showStickyHeader && (
         <div className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-primary/20 animate-in slide-in-from-top duration-300">
@@ -364,9 +367,6 @@ const Index = () => {
           </button>
         </DialogContent>
       </Dialog>
-
-      {/* Лента последних выигрышей */}
-      <WinnersMarquee />
     </div>
   );
 };
