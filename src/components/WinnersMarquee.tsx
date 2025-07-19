@@ -65,11 +65,11 @@ export const WinnersMarquee: React.FC = () => {
         style={{ animationDuration: '40s' }}
       >
         {marqueeWins.map((win, idx) => (
-          <div key={idx} className="flex items-center gap-3 min-w-[220px] px-2">
-            <img src={win.image} alt={win.skin} className="w-14 h-14 object-contain rounded-md border border-primary/30 bg-card" />
-            <div className="flex flex-col">
-              <span className="text-sm text-muted-foreground">{win.user} выбил</span>
-              <span className="font-bold text-primary text-xs md:text-base">{win.skin}</span>
+          <div key={idx} className="flex flex-col items-center justify-center min-w-[220px] max-w-[220px] px-4 py-2 bg-card rounded-lg shadow border border-primary/20 mx-2 overflow-hidden">
+            <img src={win.image} alt={win.skin} className="w-14 h-14 object-contain rounded-md border border-primary/30 bg-card mb-1" />
+            <div className="flex flex-col w-full text-center">
+              <span className="text-sm text-muted-foreground truncate">{win.user} выбил</span>
+              <span className="font-bold text-primary text-xs md:text-base truncate">{win.skin}</span>
               <span className="text-green-400 font-bold text-xs">{win.price}</span>
             </div>
           </div>

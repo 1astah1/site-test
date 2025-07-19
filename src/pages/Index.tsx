@@ -7,6 +7,7 @@ import CaseOpeningAnimation from '@/components/CaseOpeningAnimation';
 import CountdownTimer from '@/components/CountdownTimer';
 import { Badge } from '@/components/ui/badge';
 import WinnersMarquee from '@/components/WinnersMarquee';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 
 export const WEAPON_CASES = [
   {
@@ -82,6 +83,8 @@ const Index = () => {
   const [currentWinIndex, setCurrentWinIndex] = useState(0);
   const [onlineUsers, setOnlineUsers] = useState(1247);
   const [showFloatingNotification, setShowFloatingNotification] = useState(false);
+  const [showInsufficientFunds, setShowInsufficientFunds] = useState(false);
+  const [canOpenCase, setCanOpenCase] = useState(false);
 
   // Эффект для sticky header
   useEffect(() => {
@@ -114,6 +117,16 @@ const Index = () => {
 
   const handlePurchase = (caseItem) => {
     setSelectedCase(caseItem);
+    if (!canOpenCase) {
+      setShowInsufficientFunds(true);
+    } else {
+      setShowPurchaseModal(true);
+    }
+  };
+
+  const handleTopUp = () => {
+    setShowInsufficientFunds(false);
+    setCanOpenCase(true);
     setShowPurchaseModal(true);
   };
 
@@ -337,6 +350,20 @@ const Index = () => {
         onComplete={handleCaseAnimationComplete}
         selectedCase={selectedCase}
       />
+
+      {/* Модалка: недостаточно средств */}
+      <Dialog open={showInsufficientFunds} onOpenChange={setShowInsufficientFunds}>
+        <DialogContent className="max-w-md w-full text-center">
+          <h2 className="text-2xl font-bold mb-4 text-red-500">Недостаточно средств</h2>
+          <p className="mb-6 text-muted-foreground">Для открытия кейса пополните баланс.</p>
+          <button
+            onClick={handleTopUp}
+            className="csgo-gradient text-white font-bold px-8 py-3 rounded-lg text-lg hover:scale-105 transition-all duration-300"
+          >
+            Пополнить
+          </button>
+        </DialogContent>
+      </Dialog>
 
       {/* Лента последних выигрышей */}
       <WinnersMarquee />
