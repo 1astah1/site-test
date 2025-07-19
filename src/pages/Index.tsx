@@ -251,7 +251,7 @@ const Index = () => {
           {/* Main CTA */}
           <div className="mb-8">
             <p className="text-sm text-muted-foreground mt-2">
-              🎁 Бонус +100% к первому депозиту
+              {/* 🎁 Бонус +100% к первому депозиту */}
             </p>
           </div>
           

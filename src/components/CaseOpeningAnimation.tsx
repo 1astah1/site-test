@@ -240,7 +240,7 @@ const CaseOpeningAnimation: React.FC<CaseOpeningAnimationProps> = ({
                   </div>
                   
                   <p className="text-lg text-muted-foreground mb-6">
-                    Получи $5 кэшбэка и попробуй другие кейсы с бонусом +100%!
+                    Получи $5 кэшбэка и попробуй другие кейсы с бонусом +10%!
                   </p>
                   
                   <div className="bg-muted/20 p-4 rounded-lg mb-6">
@@ -260,7 +260,7 @@ const CaseOpeningAnimation: React.FC<CaseOpeningAnimationProps> = ({
                     className="csgo-gradient text-white font-bold px-8 py-3 text-lg hover:scale-105 transition-all duration-300"
                   >
                     <Gift className="w-5 h-5 mr-2" />
-                    Забрать бонус +100%
+                    Забрать бонус +10%
                   </Button>
                 </div>
               </div>
