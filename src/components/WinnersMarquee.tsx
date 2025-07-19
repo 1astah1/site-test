@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useMemo } from 'react';
 
 const SKIN_IMAGES = [
   '/lovable-uploads/1e27ca32-fe38-4414-8823-8fda9a7ca9f5.png',
@@ -50,32 +50,21 @@ function getRandomWin() {
   };
 }
 
-const WIN_COUNT = 20;
+const WIN_COUNT = 16;
 
 export const WinnersMarquee: React.FC = () => {
-  const [wins, setWins] = useState(() => Array.from({ length: WIN_COUNT }, getRandomWin));
-  const marqueeRef = useRef<HTMLDivElement>(null);
-
-  // Автоматически обновлять ленту (добавлять новые выигрыши)
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setWins((prev) => {
-        const next = prev.slice(1);
-        next.push(getRandomWin());
-        return next;
-      });
-    }, 2500);
-    return () => clearInterval(interval);
-  }, []);
+  // Генерируем массив событий один раз при монтировании
+  const wins = useMemo(() => Array.from({ length: WIN_COUNT }, getRandomWin), []);
+  // Для бесконечной ленты дублируем массив
+  const marqueeWins = [...wins, ...wins];
 
   return (
     <div className="w-full bg-background/80 border-t border-primary/20 py-3 overflow-hidden">
       <div
-        ref={marqueeRef}
         className="flex gap-8 animate-marquee whitespace-nowrap items-center"
         style={{ animationDuration: '40s' }}
       >
-        {wins.map((win, idx) => (
+        {marqueeWins.map((win, idx) => (
           <div key={idx} className="flex items-center gap-3 min-w-[220px] px-2">
             <img src={win.image} alt={win.skin} className="w-14 h-14 object-contain rounded-md border border-primary/30 bg-card" />
             <div className="flex flex-col">
@@ -92,7 +81,7 @@ export const WinnersMarquee: React.FC = () => {
           100% { transform: translateX(-50%); }
         }
         .animate-marquee {
-          animation: marquee linear infinite;
+          animation: marquee 40s linear infinite;
         }
       `}</style>
     </div>
