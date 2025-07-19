@@ -126,7 +126,7 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({
                   <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
                     <Shield className="w-6 h-6 text-purple-400" />
                   </div>
-                  <div className="text-purple-400 font-bold">Мгновенные выводы</div>
+                  <div className="text-purple-400 font-bold">Экономия</div>
                 </div>
               </div>
             </div>

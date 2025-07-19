@@ -218,7 +218,7 @@ const CaseOpeningAnimation: React.FC<CaseOpeningAnimationProps> = ({
                   <div className="flex justify-center gap-4 text-sm">
                     <div className="flex items-center gap-1 text-green-400">
                       <Star className="w-4 h-4 fill-current" />
-                      <span>Мгновенное зачисление</span>
+                      <span>Экономия</span>
                     </div>
                     <div className="flex items-center gap-1 text-blue-400">
                       <Zap className="w-4 h-4" />
@@ -226,7 +226,7 @@ const CaseOpeningAnimation: React.FC<CaseOpeningAnimationProps> = ({
                     </div>
                     <div className="flex items-center gap-1 text-purple-400">
                       <Trophy className="w-4 h-4" />
-                      <span>Эксклюзивно для тебя</span>
+                      <span>Экономия</span>
                     </div>
                   </div>
                 </div>
