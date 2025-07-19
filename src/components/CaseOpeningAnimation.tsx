@@ -51,21 +51,21 @@ const CaseOpeningAnimation: React.FC<CaseOpeningAnimationProps> = ({
     if (stage === 'spinning') {
       const timer = setTimeout(() => {
         setStage('result');
-      }, 1200);
+      }, 5200);
       return () => clearTimeout(timer);
     }
 
     if (stage === 'result') {
       const timer = setTimeout(() => {
         setStage('bonus');
-      }, 1000);
+      }, 5000);
       return () => clearTimeout(timer);
     }
 
     if (stage === 'bonus') {
       const timer = setTimeout(() => {
         setStage('cashback');
-      }, 1500);
+      }, 5500);
       return () => clearTimeout(timer);
     }
 
