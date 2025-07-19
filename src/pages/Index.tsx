@@ -310,56 +310,6 @@ const Index = () => {
             />
           ))}
         </div>
-
-        {/* Enhanced Call to Action */}
-        <div className="text-center mt-20">
-          <div className="csgo-card max-w-4xl mx-auto p-12 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-primary/10"></div>
-            <div className="relative z-10">
-              <div className="flex justify-center mb-6">
-                <div className="flex gap-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-8 h-8 text-primary fill-current animate-pulse" style={{animationDelay: `${i * 0.2}s`}} />
-                  ))}
-                </div>
-              </div>
-              <h2 className="text-4xl font-black mb-6 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
-                ⚡ НЕ УПУСТИ СВОЙ ШАНС! ⚡
-              </h2>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Предложение действует ограниченное время. Получи легендарные скины по невероятным ценам!
-                <br />
-                <span className="text-accent font-semibold">Только сегодня - скидки до 99%</span>
-              </p>
-              
-              {/* Benefits Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <DollarSign className="w-8 h-8 text-green-400" />
-                  </div>
-                  <h3 className="font-bold text-green-400 mb-2 text-3xl">10%</h3>
-                </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Zap className="w-8 h-8 text-blue-400" />
-                  </div>
-                  <h3 className="font-bold text-blue-400 mb-2 text-xl">Мгновенно</h3>
-                  <p className="text-sm text-muted-foreground">Вывод за 2 минуты</p>
-                </div>
-              </div>
-
-              <Button 
-                onClick={handleMainCTA}
-                className="csgo-gradient text-white font-black text-xl px-12 py-6 rounded-2xl hover:scale-105 transition-all duration-300 shadow-2xl"
-              >
-                <Gift className="w-6 h-6 mr-3" />
-                ЗАБРАТЬ БОНУС СЕЙЧАС
-                <ArrowRight className="w-6 h-6 ml-3" />
-              </Button>
-            </div>
-          </div>
-        </div>
       </main>
 
       {/* Floating CTA Button */}
