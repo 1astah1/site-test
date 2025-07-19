@@ -6,6 +6,7 @@ import PurchaseModal from '@/components/PurchaseModal';
 import CaseOpeningAnimation from '@/components/CaseOpeningAnimation';
 import CountdownTimer from '@/components/CountdownTimer';
 import { Badge } from '@/components/ui/badge';
+import WinnersMarquee from '@/components/WinnersMarquee';
 
 export const WEAPON_CASES = [
   {
@@ -336,6 +337,9 @@ const Index = () => {
         onComplete={handleCaseAnimationComplete}
         selectedCase={selectedCase}
       />
+
+      {/* Лента последних выигрышей */}
+      <WinnersMarquee />
     </div>
   );
 };
