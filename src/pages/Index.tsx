@@ -7,7 +7,7 @@ import CaseOpeningAnimation from '@/components/CaseOpeningAnimation';
 import CountdownTimer from '@/components/CountdownTimer';
 import { Badge } from '@/components/ui/badge';
 
-const WEAPON_CASES = [
+export const WEAPON_CASES = [
   {
     id: 1,
     name: "M4A1-S | Printstream",
@@ -200,7 +200,7 @@ const Index = () => {
             </Badge>
             <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/50">
               <Zap className="w-3 h-3 mr-1" />
-              Мгновенный вывод
+              Экономия
             </Badge>
             <Badge className="bg-orange-500/20 text-orange-400 border-orange-500/50 animate-pulse">
               <Flame className="w-3 h-3 mr-1" />
@@ -212,7 +212,7 @@ const Index = () => {
         <div className="relative max-w-7xl mx-auto text-center z-10">
           <div className="inline-flex items-center gap-3 bg-gradient-to-r from-accent/30 to-primary/30 border-2 border-accent/50 rounded-full px-8 py-3 mb-6 backdrop-blur-sm">
             <Timer className="w-5 h-5 text-accent animate-pulse" />
-            <span className="text-accent font-extrabold text-lg md:text-2xl tracking-wide drop-shadow-lg">ОГРАНИЧЕННОЕ ПРЕДЛОЖЕНИЕ</span>
+            <span className="text-white font-extrabold text-lg md:text-2xl tracking-wide drop-shadow-lg">ОГРАНИЧЕННОЕ ПРЕДЛОЖЕНИЕ</span>
             <Sparkles className="w-5 h-5 text-primary animate-pulse" />
           </div>
           
@@ -333,27 +333,19 @@ const Index = () => {
               </p>
               
               {/* Benefits Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="text-center">
                   <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
                     <DollarSign className="w-8 h-8 text-green-400" />
                   </div>
-                  <h3 className="font-bold text-green-400 mb-2">Бонус +100%</h3>
-                  <p className="text-sm text-muted-foreground">К первому депозиту</p>
+                  <h3 className="font-bold text-green-400 mb-2 text-3xl">10%</h3>
                 </div>
                 <div className="text-center">
                   <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Zap className="w-8 h-8 text-blue-400" />
                   </div>
-                  <h3 className="font-bold text-blue-400 mb-2">Мгновенно</h3>
+                  <h3 className="font-bold text-blue-400 mb-2 text-xl">Мгновенно</h3>
                   <p className="text-sm text-muted-foreground">Вывод за 2 минуты</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Shield className="w-8 h-8 text-purple-400" />
-                  </div>
-                  <h3 className="font-bold text-purple-400 mb-2">Безопасно</h3>
-                  <p className="text-sm text-muted-foreground">100% гарантия</p>
                 </div>
               </div>
 

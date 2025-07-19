@@ -41,8 +41,8 @@ const CountdownTimer: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex justify-center items-center gap-4 mb-8">
-      <span className="text-2xl md:text-3xl font-extrabold text-accent drop-shadow-lg">Предложение заканчивается через:</span>
+    <div className="flex flex-col items-center mb-8">
+      <span className="text-2xl md:text-3xl font-extrabold text-accent drop-shadow-lg mb-2 text-center">Предложение заканчивается через:</span>
       <div className="flex gap-2">
         {[
           { label: 'ЧАС', value: timeLeft.hours },

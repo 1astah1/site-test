@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Gift, Star, Sparkles, DollarSign, Zap, Trophy } from 'lucide-react';
+import { WEAPON_CASES } from '@/pages/Index';
 
 interface CaseOpeningAnimationProps {
   isOpen: boolean;
@@ -50,21 +51,21 @@ const CaseOpeningAnimation: React.FC<CaseOpeningAnimationProps> = ({
     if (stage === 'spinning') {
       const timer = setTimeout(() => {
         setStage('result');
-      }, 3000);
+      }, 1200);
       return () => clearTimeout(timer);
     }
 
     if (stage === 'result') {
       const timer = setTimeout(() => {
         setStage('bonus');
-      }, 2000);
+      }, 1000);
       return () => clearTimeout(timer);
     }
 
     if (stage === 'bonus') {
       const timer = setTimeout(() => {
         setStage('cashback');
-      }, 3000);
+      }, 1500);
       return () => clearTimeout(timer);
     }
 
@@ -121,34 +122,25 @@ const CaseOpeningAnimation: React.FC<CaseOpeningAnimationProps> = ({
 
             {stage === 'spinning' && (
               <div className="space-y-6">
-                <div className="relative">
-                  <img 
-                    src={selectedCase.image} 
-                    alt={selectedCase.name}
-                    className="w-64 h-64 object-contain rounded-2xl mx-auto animate-spin"
-                    style={{ animationDuration: '2s' }}
-                  />
-                  
-                  {/* Spinning particles */}
-                  {[...Array(12)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-3 h-3 bg-gradient-to-r from-primary to-accent rounded-full animate-pulse"
-                      style={{
-                        left: '50%',
-                        top: '50%',
-                        transform: `rotate(${i * 30}deg) translateY(-140px)`,
-                        animationDelay: `${i * 0.1}s`,
-                        filter: 'drop-shadow(0 0 10px currentColor)'
-                      }}
-                    />
-                  ))}
+                <div className="relative w-full max-w-2xl mx-auto overflow-hidden h-48 bg-card rounded-xl border border-primary/20">
+                  <div
+                    className="flex items-center transition-transform duration-1000"
+                    style={{
+                      transform: `translateX(-${Math.floor(Math.random() * (WEAPON_CASES.length - 3)) * 180}px)`
+                    }}
+                  >
+                    {WEAPON_CASES.concat(WEAPON_CASES).map((item, idx) => (
+                      <div key={idx} className="w-44 h-44 flex-shrink-0 flex flex-col items-center justify-center mx-2">
+                        <img src={item.image} alt={item.name} className="w-32 h-32 object-contain rounded-xl border-2 border-primary/30 bg-background" />
+                        <span className="text-xs text-muted-foreground mt-2 text-center">{item.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                  {/* Индикатор выигрыша */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-full bg-accent/80 rounded" style={{zIndex:2}}></div>
                 </div>
-                
                 <div className="space-y-4">
-                  <h2 className="text-2xl font-bold text-foreground">
-                    {selectedCase.name}
-                  </h2>
+                  <h2 className="text-2xl font-bold text-foreground">{selectedCase.name}</h2>
                   <div className="flex justify-center gap-4">
                     <div className="bg-primary/20 rounded-lg px-4 py-2">
                       <p className="text-sm text-muted-foreground">Твоя цена</p>

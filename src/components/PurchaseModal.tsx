@@ -134,7 +134,7 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({
             {/* Only Steam login button */}
             <div className="text-center mt-8">
               <Button
-                onClick={handleDirectRedirect}
+                onClick={onAfterRegistration}
                 className="w-full csgo-gradient text-white font-bold py-3 text-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
               >
                 <img src="/public/favicon.ico" alt="Steam" className="w-6 h-6 mr-2" />
